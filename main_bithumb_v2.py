@@ -220,8 +220,8 @@ class MyWindow(QMainWindow, form_class):
             if detail is not None:
                 low, high, avg, volume = detail
                 self.range = (high - low) * 0.5
-                # korbit의 get_market_detail의 세번째 인자가 closing price인데 반해,
-                # bithumb의 get_market_detail은 세번째 인자가 average... closeing price는 지금 가격으로 대체
+                # korbit의 get_market_detail의 세번째 리턴값이 closing price인데 반해,
+                # bithumb의 get_market_detail은 세번째 리턴값이 average라서, closeing price는 지금 가격으로 대체
                 self.open = pybithumb.get_current_price("BTC") # 지금 가격 불러오기
                 print("self.open: ", self.open)
                 self.target = self.open + self.range
